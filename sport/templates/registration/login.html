@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <form method="POST" action="{% url 'login' %}">        
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+            You are already logged in
+            <a href="/sport/user/">Go to page</a>    
+        {% else %}
+        <div>
+            <div>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </div>
+            <div>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="login"/>        
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+        <div>
+            <a href="/admin">Enter as admin</a>
+        </div>
+        {% endif %} 
+    </form>
+{% endblock %}
