@@ -26,8 +26,7 @@ class Trainer(models.Model):
     def __str__(self):
         return self.firstname + self.lastname
 
-class Exercise(models.Model):
-    id_exercise = models.UUIDField(primary_key=True, default=uuid.uuid4)
+class RequestExercise(models.Model):
     type_exercise = models.ForeignKey(ExerciseType, on_delete=models.SET_NULL, null=True)
     trainer = models.ForeignKey(Trainer, on_delete=models.SET_NULL, null=True)
     hall = models.PositiveIntegerField(null=False)
@@ -37,3 +36,7 @@ class Exercise(models.Model):
 
     def __str__(self):
         return self.trainer.lastname + self.type_exercise.name
+
+class Exercise(RequestExercise):
+    id_exercise = models.UUIDField(primary_key=True, default=uuid.uuid4)
+
