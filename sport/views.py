@@ -23,3 +23,9 @@ def index(request):
                  'num_exercise_type': num_exercise_type},
     )
 
+
+from django.views import generic
+
+
+class TrainerListView(generic.ListView):
+    model = Trainer
