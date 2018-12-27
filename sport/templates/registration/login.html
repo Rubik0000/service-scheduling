@@ -5,7 +5,7 @@
         {% csrf_token %}
         {% if user.is_authenticated %}
             You are already logged in
-            <a href="/sport/user/">Go to page</a>    
+            <a href="/sport/">Go to page</a>
         {% else %}
         <div>
             <div>
@@ -26,4 +26,7 @@
         </div>
         {% endif %} 
     </form>
+
+    {# Assumes you setup the password_reset view in your URLconf #}
+    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 {% endblock %}
