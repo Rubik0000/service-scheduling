@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Local Sport Home</h1>
+
+  <p>Welcome to <em>Sport</em></p>
+
+<h2>Dynamic content</h2>
+
+  <p>The sport has the following record counts:</p>
+  <ul>
+    <li><strong>Request exercises:</strong> {{ num_request_exercise }}</li>
+    <li><strong>Trainers:</strong> {{ num_trainer }}</li>
+    <li><strong>Exercise types:</strong> {{ num_exercise_type }}</li>
+  </ul>
+
+{% endblock %}
