@@ -4,8 +4,12 @@
     <form method="POST" action="{% url 'login' %}">        
         {% csrf_token %}
         {% if user.is_authenticated %}
-            You are already logged in
-            <a href="/sport/">Go to page</a>
+        <div>
+            You are already logged in as <b>{{ user.get_username }}</b>
+        </div>    
+        <div>
+            <a href="/sport/index/">Go to page</a>
+        </div>
         {% else %}
         <div>
             <div>
